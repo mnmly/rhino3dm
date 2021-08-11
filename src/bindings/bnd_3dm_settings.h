@@ -51,7 +51,7 @@ public:
   unsigned int GetFocalBlurSampleCount() const { return m_view.FocalBlurSampleCount(); }
   void SetFocalBlurSampleCount(unsigned int i) { m_view.SetFocalBlurSampleCount(i); }
   //public ViewInfoFocalBlurModes FocalBlurMode
-  BND_Viewport* GetViewport() const;
+  BND_Viewport GetViewport() const;
   void SetViewport(const class BND_Viewport& viewport);
 };
 
