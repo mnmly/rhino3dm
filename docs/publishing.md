@@ -46,3 +46,27 @@ See https://docs.microsoft.com/en-us/nuget/nuget-org/publish-a-package#publish-w
 #### Notes:
 
 1. To create an API Key for NuGet, see https://docs.microsoft.com/en-us/nuget/nuget-org/publish-a-package#create-api-keys 
+
+## Python
+
+Python packages can be uploaded to the corresponding `pypi.org` project: https://pypi.org/project/rhino3dm.
+
+1. Run a `workflow_release` workflow from the rhino3dm repository Actions: https://github.com/mcneel/rhino3dm/actions/workflows/workflow_release.yml. This will build all of the rhino3dm versions, including all Python packages.
+2. Download all Python packages to an empty folder called `dist`.
+3. Upload all Python packages with `twine`
+
+```bash
+python3 -m twine upload dist/*
+```
+
+#### Requirements
+
+1. Have an account on pypi.org.
+2. Be a maintainer or owner for the [rhino3dm package](https://pypi.org/project/rhino3dm).
+3. Ensure `twine` is installed
+
+```bash
+python3 -m pip install --upgrade twine
+```
+
+4. Acquire an API token at https://pypi.org/manage/account/token/
