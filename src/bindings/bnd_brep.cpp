@@ -285,7 +285,7 @@ void initBrepBindings(pybind11::module& m)
     .def("DuplicateFace", &BND_BrepFace::DuplicateFace, py::arg("duplicateMeshes"))
     .def("DuplicateSurface", &BND_BrepFace::DuplicateSurface)
     .def("GetMesh", &BND_BrepFace::GetMesh, py::arg("meshType"))
-    .def("FaceMaterialChannel", &BND_BrepFace::FaceMaterialChannel)
+    .def_property_readonly("FaceMaterialChannel", &BND_BrepFace::FaceMaterialChannel)
     ;
 
   py::class_<BND_BrepFaceList>(m, "BrepFaceList")
@@ -339,7 +339,7 @@ void initBrepBindings(void*)
     .function("duplicateFace", &BND_BrepFace::DuplicateFace, allow_raw_pointers())
     .function("duplicateSurface", &BND_BrepFace::DuplicateSurface, allow_raw_pointers())
     .function("getMesh", &BND_BrepFace::GetMesh, allow_raw_pointers())
-    .function("faceMaterialChannel", &BND_BrepFace::FaceMaterialChannel)
+    .property("faceMaterialChannel", &BND_BrepFace::FaceMaterialChannel)
     ;
 
   class_<BND_BrepFaceList>("BrepFaceList")
