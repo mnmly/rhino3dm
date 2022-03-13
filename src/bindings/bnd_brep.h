@@ -139,7 +139,8 @@ public:
   class BND_Surface* DuplicateSurface();
   class BND_Surface* UnderlyingSurface();
   class BND_Mesh* GetMesh(ON::mesh_type mt);
-  int FaceMaterialChannel { get };
+  int FaceMaterialChannel() const { return m_brepface->m_face_material_channel; }
+
   //bool SetMesh(MeshType meshType, Mesh mesh)
   //int[] AdjacentEdges()
   //int[] AdjacentFaces()
